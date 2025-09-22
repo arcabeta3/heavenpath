@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>互動閱讀體驗</title>
+  <style>
+    body {
+      font-family: "Noto Serif TC", serif;
+      background: #0d1b2a;
+      color: #f1faee;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 { color: #f1fa8c; }
+    .choices button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px 15px;
+      background: #1d3557;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .choices button:hover {
+      background: #457b9d;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">互動閱讀體驗</h1>
+  <div id="content"></div>
+  <div class="choices" id="choices"></div>
+  <script src="storyData.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
