@@ -104,20 +104,10 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="因為有旨意而與聖子一起走過的路" startnode="2" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="A1B2C3D4-E5F6-7890-ABCD-EF1234567890" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap");
+	<tw-storydata name="因為有旨意而與聖子一起走過的路" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="A1B2C3D4-E5F6-7890-ABCD-EF1234567890" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap");
 
-html, body {
-  background: #ffffff !important;
-  margin: 0; padding: 0;
-}
-
-body {
-  color: #1a1a1a;
-  font-family: 'Noto Serif TC', Georgia, serif;
-}
-
-/* ===== 消滅所有預設框框 ===== */
-#passages, .passage, #story {
+/* 消滅預設框框 */
+#passages, .passage {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -125,291 +115,36 @@ body {
 }
 *:focus { outline: none !important; box-shadow: none !important; }
 
-/* ===== 側欄完全自訂 ===== */
-#ui-bar {
-  background-color: #c49a1a !important;
-  border-right: none !important;
-  width: 260px !important;
-  min-height: 100vh !important;
-}
+/* 側欄顏色 */
+#ui-bar { background-color: #c49a1a !important; border-right: none !important; }
+#ui-bar-body { color: #ffffff !important; }
+#story-title { color: #ffffff !important; font-weight: 700 !important; letter-spacing: 0.1em !important; }
+#ui-bar-tray button { background-color: #2a4a6b !important; border: none !important; border-radius: 50% !important; color: #fff !important; }
+#menu-story li, #menu-core li { border-left: 3px solid rgba(255,255,255,0.7) !important; }
+#menu-story a, #menu-core a { color: #ffffff !important; font-weight: 700 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; font-size: 0.8em !important; }
+#menu-item-saves a, #menu-item-settings a, #menu-item-restart a { color: #ffffff !important; }
 
-/* 隱藏預設的tray裡面的東西，用StoryCaption控制 */
-#ui-bar-tray {
-  display: none !important;
-}
-
-#ui-bar-body {
-  padding: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
-
-/* 遊戲標題 */
-#story-title {
-  font-family: 'Noto Sans TC', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 1.05em !important;
-  letter-spacing: 0.25em !important;
-  color: #ffffff !important;
-  text-transform: uppercase !important;
-  text-align: center !important;
-  padding: 22px 20px 0 20px !important;
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* 隱藏不需要的 */
-#story-banner, #story-subtitle, #story-author,
-#story-title-separator, #story-caption { display: none !important; }
-
-/* 選單區 */
-#menu-story, #menu-core {
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important;
-}
-
-#menu-story li, #menu-core li {
-  border-left: 3px solid rgba(255,255,255,0.8) !important;
-  padding: 5px 0 5px 16px !important;
-  margin: 6px 20px !important;
-  list-style: none !important;
-}
-
-#menu-story a, #menu-core a {
-  color: #ffffff !important;
-  font-family: 'Noto Sans TC', sans-serif !important;
-  font-size: 0.78em !important;
-  letter-spacing: 0.15em !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  text-decoration: none !important;
-  border: none !important;
-  display: block !important;
-}
-
-#menu-story a:hover, #menu-core a:hover {
-  color: rgba(255,255,255,0.65) !important;
-}
-
-/* ===== StoryCaption 裡放導航按鈕、裝飾圖、作者名、功能按鈕 ===== */
-#story-caption {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  width: 100% !important;
-  padding: 12px 0 20px 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* 導航按鈕列 */
-.nav-row {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin: 8px 0 16px 0;
-}
-
-.nav-btn {
-  background-color: #2a4a6b !important;
-  border: none !important;
-  border-radius: 50% !important;
-  width: 44px !important;
-  height: 44px !important;
-  color: #ffffff !important;
-  font-size: 1.1em !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-weight: bold;
-  text-decoration: none;
-  line-height: 1;
-}
-
-.nav-btn:hover {
-  background-color: #1a3a5b !important;
-  color: #ffffff !important;
-}
-
-/* 裝飾圖 */
-.sidebar-art {
-  width: 160px;
-  height: 160px;
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sidebar-art svg {
-  width: 160px;
-  height: 160px;
-  opacity: 0.85;
-}
-
-/* 作者行 */
-.author-line {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.72em;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.75);
-  text-transform: uppercase;
-  margin: 8px 0 16px 0;
-}
-
-.author-line span {
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255,255,255,0.5);
-  padding-bottom: 1px;
-}
-
-/* 功能按鈕列 */
-.func-row {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 0 0 20px 0;
-}
-
-.func-btn {
-  background-color: #2a4a6b !important;
-  border: none !important;
-  border-radius: 50% !important;
-  width: 44px !important;
-  height: 44px !important;
-  color: #ffffff !important;
-  font-size: 1em !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.func-btn:hover { background-color: #1a3a5b !important; }
-
-/* ===== 主內文 ===== */
-#story {
-  margin-left: 260px !important;
-  padding: 60px 90px !important;
-  background: #ffffff !important;
-  min-height: 100vh !important;
-}
-#ui-bar.stowed ~ #story {
-  margin-left: 0 !important;
-  padding: 32px 24px !important;
-}
-@media (max-width: 768px) {
-  #story { margin-left: 0 !important; padding: 32px 20px !important; }
-  .passage { font-size: 1em !important; }
-}
-
-.passage {
-  max-width: 680px;
-  font-size: 1.08em;
-  line-height: 2.1;
-  color: #1a1a1a;
-}
+/* 內文 */
+body { font-family: 'Noto Serif TC', serif; color: #1a1a1a; background: #fff; }
+#story { background: #ffffff !important; }
+.passage { font-size: 1.05em; line-height: 2.1; max-width: 680px; }
 
 /* 選項連結 */
-a {
-  color: #c49a1a !important;
-  font-weight: 700 !important;
-  font-style: italic !important;
-  text-decoration: none !important;
-  border: none !important;
-  display: block !important;
-  margin: 0.35em 0 !important;
-  font-size: 1.05em !important;
-}
-
-a:hover { color: #9a7a10 !important; text-decoration: underline !important; }
+a.link-internal { color: #c49a1a !important; font-weight: 700 !important; font-style: italic !important; display: block !important; margin: 0.3em 0 !important; }
+a.link-internal:hover { color: #9a7a10 !important; }
 
 /* 自訂class */
-.section-title {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.72em;
-  letter-spacing: 0.25em;
-  color: #cccccc;
-  margin: 0 0 2.5em 0;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.pause-block {
-  margin: 2.5em 0 1.5em 0;
-  padding-top: 1.5em;
-  border-top: 1px solid #eeeeee;
-}
-
-.pause-question {
-  color: #555555;
-  font-style: italic;
-  font-weight: normal;
-  margin-bottom: 1em;
-  line-height: 1.8;
-}
-
-.response-text {
-  color: #aaaaaa;
-  font-style: italic;
-  font-size: 0.95em;
-  margin: 0.5em 0 2em 0;
-  line-height: 1.8;
-}
-
-.narration {
-  color: #555555;
-  font-style: italic;
-  line-height: 2.0;
-  margin: 1.5em 0;
-}
-
-hr { border: none; border-top: 1px solid #eeeeee; margin: 2.5em 0; }
+.section-title { font-size: 0.72em; letter-spacing: 0.25em; color: #ccc; margin: 0 0 2em 0; padding-bottom: 0.8em; border-bottom: 1px solid #eee; }
+.pause-block { margin: 2em 0; padding-top: 1.5em; border-top: 1px solid #eee; }
+.pause-question { color: #555; font-style: italic; margin-bottom: 1em; line-height: 1.8; }
+.response-text { color: #aaa; font-style: italic; font-size: 0.95em; margin: 0.5em 0 1.5em 0; line-height: 1.8; }
+.narration { color: #555; font-style: italic; line-height: 2.0; margin: 1.5em 0; }
+hr { border: none; border-top: 1px solid #eee; margin: 2em 0; }
 
 /* 對話框 */
-#ui-dialog { background: #fff; border: 1px solid #ddd; }
-#ui-dialog-titlebar { background: #c49a1a; color: #fff; }
-#ui-dialog-body button {
-  background: #c49a1a !important; color: #fff !important;
-  border: none !important; border-radius: 3px !important;
-  padding: 6px 16px !important; width: auto !important; height: auto !important;
-}
-
-.error-view { display: none !important; }</style><script role="script" id="twine-user-script" type="text/twine-javascript">
-Config.history.controls = false;
-Config.saves.slots = 8;
-Config.ui.stowBarInitially = 768;</script><tw-passagedata pid="1" name="StoryCaption" tags="" position="0,0" size="100,100">&lt;div class=&quot;nav-row&quot;&gt;
-&lt;&lt;button &quot;←&quot;&gt;&gt;&lt;&lt;back&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &quot;→&quot;&gt;&gt;&lt;&lt;forward&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sidebar-art&quot;&gt;
-&lt;svg viewBox=&quot;0 0 200 200&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot;&gt;
-  &lt;!-- 裝飾圓圈 --&gt;
-  &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;40&quot; stroke=&quot;rgba(255,255,255,0.6)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;55&quot; stroke=&quot;rgba(255,255,255,0.35)&quot; stroke-width=&quot;1&quot;/&gt;
-  &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;70&quot; stroke=&quot;rgba(255,255,255,0.2)&quot; stroke-width=&quot;1&quot;/&gt;
-  &lt;!-- 放射線 --&gt;
-  &lt;line x1=&quot;100&quot; y1=&quot;20&quot; x2=&quot;100&quot; y2=&quot;40&quot; stroke=&quot;rgba(255,255,255,0.7)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;100&quot; y1=&quot;160&quot; x2=&quot;100&quot; y2=&quot;180&quot; stroke=&quot;rgba(255,255,255,0.7)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;20&quot; y1=&quot;100&quot; x2=&quot;40&quot; y2=&quot;100&quot; stroke=&quot;rgba(255,255,255,0.7)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;160&quot; y1=&quot;100&quot; x2=&quot;180&quot; y2=&quot;100&quot; stroke=&quot;rgba(255,255,255,0.7)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;43&quot; y1=&quot;43&quot; x2=&quot;57&quot; y2=&quot;57&quot; stroke=&quot;rgba(255,255,255,0.5)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;143&quot; y1=&quot;43&quot; x2=&quot;157&quot; y2=&quot;57&quot; stroke=&quot;rgba(255,255,255,0.5)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;43&quot; y1=&quot;157&quot; x2=&quot;57&quot; y2=&quot;143&quot; stroke=&quot;rgba(255,255,255,0.5)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;line x1=&quot;143&quot; y1=&quot;157&quot; x2=&quot;157&quot; y2=&quot;143&quot; stroke=&quot;rgba(255,255,255,0.5)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;!-- 中心圖案 --&gt;
-  &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;18&quot; stroke=&quot;rgba(255,255,255,0.8)&quot; stroke-width=&quot;1.5&quot;/&gt;
-  &lt;circle cx=&quot;100&quot; cy=&quot;100&quot; r=&quot;8&quot; fill=&quot;rgba(255,255,255,0.4)&quot;/&gt;
-&lt;/svg&gt;
-&lt;/div&gt;
-&lt;div class=&quot;author-line&quot;&gt;BY &lt;span&gt;作者&lt;/span&gt;&lt;/div&gt;
-&lt;div class=&quot;func-row&quot;&gt;
-&lt;&lt;button &quot;↺&quot;&gt;&gt;&lt;&lt;restart&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;&lt;button &quot;⚙&quot;&gt;&gt;&lt;&lt;masteraudio mute&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="開始" tags="" position="100,100" size="100,100">&lt;div class=&quot;section-title&quot;&gt;│ 連家人也無法理解的路 │&lt;/div&gt;
+#ui-dialog-titlebar { background: #c49a1a !important; }
+#ui-dialog-body button { background: #c49a1a !important; color: #fff !important; border: none !important; }
+.error-view { display: none !important; }</style><script role="script" id="twine-user-script" type="text/twine-javascript">Config.saves.slots = 8;</script><tw-passagedata pid="1" name="開始" tags="" position="100,100" size="100,100">&lt;div class=&quot;section-title&quot;&gt;│ 連家人也無法理解的路 │&lt;/div&gt;
 
 那時候，沒有人知道他在哪裡。
 
@@ -433,16 +168,16 @@ Config.ui.stowBarInitially = 768;</script><tw-passagedata pid="1" name="StoryCap
 
 這裡，只有他，和天。
 
-[[繼續|第一停頓]]</tw-passagedata><tw-passagedata pid="3" name="第一停頓" tags="" position="250,100" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
+[[繼續|第一停頓]]</tw-passagedata><tw-passagedata pid="2" name="第一停頓" tags="" position="250,100" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
 &lt;div class=&quot;pause-question&quot;&gt;你有沒有這樣的地方——&lt;br&gt;只屬於你和天的地方？&lt;/div&gt;
 
 [[有。那裡讓我喘得過氣來。|第一選A]]
 [[沒有。我還在尋找。|第一選B]]
 [[我不確定那算不算。|第一選C]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="第一選A" tags="" position="400,50" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那個地方知道你——即使你什麼都不說。&lt;/div&gt;
-[[繼續|第二段]]</tw-passagedata><tw-passagedata pid="5" name="第一選B" tags="" position="400,100" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也曾走了很久，才找到那個洞穴。&lt;/div&gt;
-[[繼續|第二段]]</tw-passagedata><tw-passagedata pid="6" name="第一選C" tags="" position="400,150" size="100,100">&lt;div class=&quot;response-text&quot;&gt;有些地方，要在你離開之後，才知道它對你有多重要。&lt;/div&gt;
-[[繼續|第二段]]</tw-passagedata><tw-passagedata pid="7" name="第二段" tags="" position="550,100" size="100,100">不論是誰，每個人都有自己一路走來的路，也有自己要走下去的路。
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="第一選A" tags="" position="400,50" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那個地方知道你——即使你什麼都不說。&lt;/div&gt;
+[[繼續|第二段]]</tw-passagedata><tw-passagedata pid="4" name="第一選B" tags="" position="400,100" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也曾走了很久，才找到那個洞穴。&lt;/div&gt;
+[[繼續|第二段]]</tw-passagedata><tw-passagedata pid="5" name="第一選C" tags="" position="400,150" size="100,100">&lt;div class=&quot;response-text&quot;&gt;有些地方，要在你離開之後，才知道它對你有多重要。&lt;/div&gt;
+[[繼續|第二段]]</tw-passagedata><tw-passagedata pid="6" name="第二段" tags="" position="550,100" size="100,100">不論是誰，每個人都有自己一路走來的路，也有自己要走下去的路。
 
 他也有一條唯有他走過的人生路。回想過往歲月，他內心深切地體會到：「原來我之所以走這條路，是為了讓所有人都與我一起度過如今這屬天的人生啊！」
 
@@ -454,18 +189,18 @@ Config.ui.stowBarInitially = 768;</script><tw-passagedata pid="1" name="StoryCap
 
 家人希望他過一般人的生活。但他們無法理解他這樣的禱告生活。因此，他的一言一行，總引來旁人的目光，也不免被人當作瘋子。
 
-[[繼續|第二停頓]]</tw-passagedata><tw-passagedata pid="8" name="第二停頓" tags="" position="700,100" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
+[[繼續|第二停頓]]</tw-passagedata><tw-passagedata pid="7" name="第二停頓" tags="" position="700,100" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
 &lt;div class=&quot;pause-question&quot;&gt;你有沒有聽過這樣的話——&lt;br&gt;有人說你不行？&lt;/div&gt;
 
 [[聽過。那話刻進我心裡，很久都還在。|第二選A]]
 [[聽過，但我選擇不讓它定義我。|第二選B]]
 [[沒有，但我常常這樣說自己。|第二選C]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="第二選A" tags="" position="850,50" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他哥哥說：「你那麼軟弱，又不懂人情世故，能做什麼？」那話，他也記得。&lt;/div&gt;
-[[繼續|第三段]]</tw-passagedata><tw-passagedata pid="10" name="第二選B" tags="" position="850,100" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也是。只是那條路走得孤單——因為沒有人能替他走。&lt;/div&gt;
-[[繼續|第三段]]</tw-passagedata><tw-passagedata pid="11" name="第二選C" tags="" position="850,150" size="100,100">&lt;div class=&quot;response-text&quot;&gt;我們往往是自己最嚴苛的法官。但那個聲音，不一定說的是真的。&lt;/div&gt;
-[[繼續|第三段]]</tw-passagedata><tw-passagedata pid="12" name="第三段" tags="" position="100,300" size="100,100">農村裡有一句話：「夏天閒著一日，冬天就要餓上十日。」
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="第二選A" tags="" position="850,50" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他哥哥說：「你那麼軟弱，又不懂人情世故，能做什麼？」那話，他也記得。&lt;/div&gt;
+[[繼續|第三段]]</tw-passagedata><tw-passagedata pid="9" name="第二選B" tags="" position="850,100" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也是。只是那條路走得孤單——因為沒有人能替他走。&lt;/div&gt;
+[[繼續|第三段]]</tw-passagedata><tw-passagedata pid="10" name="第二選C" tags="" position="850,150" size="100,100">&lt;div class=&quot;response-text&quot;&gt;我們往往是自己最嚴苛的法官。但那個聲音，不一定說的是真的。&lt;/div&gt;
+[[繼續|第三段]]</tw-passagedata><tw-passagedata pid="11" name="第三段" tags="" position="100,300" size="100,100">農村裡有一句話：「夏天閒著一日，冬天就要餓上十日。」
 
-夏天就是這樣繁忙的季節。年邁的父母清晨下田，要到星斗升起才回家。即使這樣過日子，他們仍連一餐簡單的白飯與味噌湯都難以負擔。那就是他的故鄉。
+年邁的父母清晨下田，要到星斗升起才回家。即使這樣過日子，他們仍連一餐簡單的白飯與味噌湯都難以負擔。那就是他的故鄉。
 
 而他要走的路，與父母的完全不同。
 
@@ -475,35 +210,33 @@ Config.ui.stowBarInitially = 768;</script><tw-passagedata pid="1" name="StoryCap
 
 然而，神給了他無聲的回答。
 
-[[繼續|第三停頓]]</tw-passagedata><tw-passagedata pid="13" name="第三停頓" tags="" position="250,300" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
+[[繼續|第三停頓]]</tw-passagedata><tw-passagedata pid="12" name="第三停頓" tags="" position="250,300" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
 &lt;div class=&quot;pause-question&quot;&gt;你有沒有被人要求，&lt;br&gt;走一條不是你的路？&lt;/div&gt;
 
 [[有。他們覺得那條路更安全、更合理。|第三選A]]
 [[有。但我走了一段，才知道那不是我的。|第三選B]]
 [[還在摸索，什麼才是真正屬於我的路。|第三選C]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="第三選A" tags="" position="400,250" size="100,100">&lt;div class=&quot;response-text&quot;&gt;安全的路，有時候是別人的路穿在你身上。穿久了，會忘記自己的形狀。&lt;/div&gt;
-[[繼續|第四段]]</tw-passagedata><tw-passagedata pid="15" name="第三選B" tags="" position="400,300" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也一樣。曾跟著兄弟走，跟著父母叫他走的路。但那些都很短暫。&lt;/div&gt;
-[[繼續|第四段]]</tw-passagedata><tw-passagedata pid="16" name="第三選C" tags="" position="400,350" size="100,100">&lt;div class=&quot;response-text&quot;&gt;摸索的過程本身，也是路的一部分。走著走著，腳步會告訴你哪裡是對的。&lt;/div&gt;
-[[繼續|第四段]]</tw-passagedata><tw-passagedata pid="17" name="第四段" tags="" position="550,300" size="100,100">然而，在各個領域裡，那些走得更深的人，本就與眾人不同。
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="第三選A" tags="" position="400,250" size="100,100">&lt;div class=&quot;response-text&quot;&gt;安全的路，有時候是別人的路穿在你身上。穿久了，會忘記自己的形狀。&lt;/div&gt;
+[[繼續|第四段]]</tw-passagedata><tw-passagedata pid="14" name="第三選B" tags="" position="400,300" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也一樣。曾跟著兄弟走，跟著父母叫他走的路。但那些都很短暫。&lt;/div&gt;
+[[繼續|第四段]]</tw-passagedata><tw-passagedata pid="15" name="第三選C" tags="" position="400,350" size="100,100">&lt;div class=&quot;response-text&quot;&gt;摸索的過程本身，也是路的一部分。走著走著，腳步會告訴你哪裡是對的。&lt;/div&gt;
+[[繼續|第四段]]</tw-passagedata><tw-passagedata pid="16" name="第四段" tags="" position="550,300" size="100,100">然而，在各個領域裡，那些走得更深的人，本就與眾人不同。
 
 當他在深山中禱告一兩週，甚至一個月之後，再回到人群之中，看見那些在死亡世界裡度日的靈魂，心中的酸楚與憐憫，便難以承受。
-
-那樣的時候，比起農事，他更想去拯救那些靈魂。
 
 每當那時，他就會從故鄉樹林深處的獼猴桃谷禱告洞走出來，背著一千五百到三千張福音傳單，踏上傳道的路。
 
 沒有人攔得住他。也沒有人能理解。
 
-[[繼續|第四停頓]]</tw-passagedata><tw-passagedata pid="18" name="第四停頓" tags="" position="700,300" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
+[[繼續|第四停頓]]</tw-passagedata><tw-passagedata pid="17" name="第四停頓" tags="" position="700,300" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
 &lt;div class=&quot;pause-question&quot;&gt;你有沒有一種感受，&lt;br&gt;讓你按捺不住，非做不可？&lt;/div&gt;
 
 [[有。看見某種痛苦，就無法假裝沒看見。|第四選A]]
 [[有，但生活的重量常常把它壓下去。|第四選B]]
 [[我還在等待那種感受出現。|第四選C]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="第四選A" tags="" position="850,250" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那種「無法假裝沒看見」的感受，有時候就是使命開始的樣子。&lt;/div&gt;
-[[繼續|第五段]]</tw-passagedata><tw-passagedata pid="20" name="第四選B" tags="" position="850,300" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也承受過那樣的重量。農忙、貧窮、家人的眼光。但那個聲音沒有消失。&lt;/div&gt;
-[[繼續|第五段]]</tw-passagedata><tw-passagedata pid="21" name="第四選C" tags="" position="850,350" size="100,100">&lt;div class=&quot;response-text&quot;&gt;有時那種感受是安靜的，不是衝動。它在你準備好之前，就已經在了。&lt;/div&gt;
-[[繼續|第五段]]</tw-passagedata><tw-passagedata pid="22" name="第五段" tags="" position="100,500" size="100,100">他背著三千張傳單走出洞穴的那一刻——
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="第四選A" tags="" position="850,250" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那種「無法假裝沒看見」的感受，有時候就是使命開始的樣子。&lt;/div&gt;
+[[繼續|第五段]]</tw-passagedata><tw-passagedata pid="19" name="第四選B" tags="" position="850,300" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也承受過那樣的重量。農忙、貧窮、家人的眼光。但那個聲音沒有消失。&lt;/div&gt;
+[[繼續|第五段]]</tw-passagedata><tw-passagedata pid="20" name="第四選C" tags="" position="850,350" size="100,100">&lt;div class=&quot;response-text&quot;&gt;有時那種感受是安靜的，不是衝動。它在你準備好之前，就已經在了。&lt;/div&gt;
+[[繼續|第五段]]</tw-passagedata><tw-passagedata pid="21" name="第五段" tags="" position="100,500" size="100,100">他背著三千張傳單走出洞穴的那一刻——
 
 沒有人在場。沒有人為他鼓掌，沒有人理解他在做什麼。全村的人還在說：「月明洞的那個人瘋了。」
 
@@ -513,31 +246,31 @@ Config.ui.stowBarInitially = 768;</script><tw-passagedata pid="1" name="StoryCap
 
 二十一年。
 
-[[繼續|第五停頓]]</tw-passagedata><tw-passagedata pid="23" name="第五停頓" tags="" position="250,500" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
+[[繼續|第五停頓]]</tw-passagedata><tw-passagedata pid="22" name="第五停頓" tags="" position="250,500" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
 &lt;div class=&quot;pause-question&quot;&gt;你有沒有一件事，&lt;br&gt;就算沒有人理解，你還是去做了？&lt;/div&gt;
 
 [[有。做的時候很孤單，但停下來更難受。|第五選A]]
 [[有過，但最後還是放棄了。|第五選B]]
 [[我還沒遇到那種非做不可的事。|第五選C]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="第五選A" tags="" position="400,450" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也是這樣。做的時候孤單，但那份孤單比停下來要輕。&lt;/div&gt;
-[[繼續|第六段]]</tw-passagedata><tw-passagedata pid="25" name="第五選B" tags="" position="400,500" size="100,100">&lt;div class=&quot;response-text&quot;&gt;放棄不是終點。他也曾停滯，再回頭。路還在。&lt;/div&gt;
-[[繼續|第六段]]</tw-passagedata><tw-passagedata pid="26" name="第五選C" tags="" position="400,550" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那樣的事，往往在你以為自己還沒準備好的時候出現。&lt;/div&gt;
-[[繼續|第六段]]</tw-passagedata><tw-passagedata pid="27" name="第六段" tags="" position="550,500" size="100,100">&lt;div class=&quot;narration&quot;&gt;這是唯有他走過的路。&lt;br&gt;為了記下這些日子，他與耶穌一同構思了這本書。&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="第五選A" tags="" position="400,450" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也是這樣。做的時候孤單，但那份孤單比停下來要輕。&lt;/div&gt;
+[[繼續|第六段]]</tw-passagedata><tw-passagedata pid="24" name="第五選B" tags="" position="400,500" size="100,100">&lt;div class=&quot;response-text&quot;&gt;放棄不是終點。他也曾停滯，再回頭。路還在。&lt;/div&gt;
+[[繼續|第六段]]</tw-passagedata><tw-passagedata pid="25" name="第五選C" tags="" position="400,550" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那樣的事，往往在你以為自己還沒準備好的時候出現。&lt;/div&gt;
+[[繼續|第六段]]</tw-passagedata><tw-passagedata pid="26" name="第六段" tags="" position="550,500" size="100,100">&lt;div class=&quot;narration&quot;&gt;這是唯有他走過的路。&lt;br&gt;為了記下這些日子，他與耶穌一同構思了這本書。&lt;/div&gt;
 
 若只是他一人來寫，或許會遺忘，也可能只剩下自己的看法。
 
 但這條路，看似他一人走過，其實，是他與耶穌一同走過的路。
 
-[[繼續|第六停頓]]</tw-passagedata><tw-passagedata pid="28" name="第六停頓" tags="" position="700,500" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
+[[繼續|第六停頓]]</tw-passagedata><tw-passagedata pid="27" name="第六停頓" tags="" position="700,500" size="100,100">&lt;div class=&quot;pause-block&quot;&gt;
 &lt;div class=&quot;pause-question&quot;&gt;你走得最辛苦的那段路，&lt;br&gt;有沒有一個同行的存在？&lt;/div&gt;
 
 [[有。即使我常常忘記，祂還是在。|第六選A]]
 [[沒有。我覺得自己是一個人。|第六選B]]
 [[我不確定。但有時感覺不完全是孤單的。|第六選C]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="第六選A" tags="" position="850,450" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那個存在，從未因為你忘記祂而離開。&lt;/div&gt;
-[[繼續|結語]]</tw-passagedata><tw-passagedata pid="30" name="第六選B" tags="" position="850,500" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也這樣以為過。但後來他明白，那條路看似一人獨行，其實不是。&lt;/div&gt;
-[[繼續|結語]]</tw-passagedata><tw-passagedata pid="31" name="第六選C" tags="" position="850,550" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那個「不完全是孤單」的感受，有時候就是同行者留下的痕跡。&lt;/div&gt;
-[[繼續|結語]]</tw-passagedata><tw-passagedata pid="32" name="結語" tags="" position="100,700" size="100,100">---
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="第六選A" tags="" position="850,450" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那個存在，從未因為你忘記祂而離開。&lt;/div&gt;
+[[繼續|結語]]</tw-passagedata><tw-passagedata pid="29" name="第六選B" tags="" position="850,500" size="100,100">&lt;div class=&quot;response-text&quot;&gt;他也這樣以為過。但後來他明白，那條路看似一人獨行，其實不是。&lt;/div&gt;
+[[繼續|結語]]</tw-passagedata><tw-passagedata pid="30" name="第六選C" tags="" position="850,550" size="100,100">&lt;div class=&quot;response-text&quot;&gt;那個「不完全是孤單」的感受，有時候就是同行者留下的痕跡。&lt;/div&gt;
+[[繼續|結語]]</tw-passagedata><tw-passagedata pid="31" name="結語" tags="" position="100,700" size="100,100">---
 
 他傳揚了在那裡體會並學習的話語，如今已有數萬人聆聽神和聖子的話語後得到聖靈感動而跟隨。有數萬人前來尋訪他所居住的故鄉和禱告洞，人群的腳步將這條路磨得光滑。
 
