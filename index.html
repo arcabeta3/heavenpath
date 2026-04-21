@@ -297,6 +297,14 @@ body {
   background: #ffffff !important;
   min-height: 100vh !important;
 }
+#ui-bar.stowed ~ #story {
+  margin-left: 0 !important;
+  padding: 32px 24px !important;
+}
+@media (max-width: 768px) {
+  #story { margin-left: 0 !important; padding: 32px 20px !important; }
+  .passage { font-size: 1em !important; }
+}
 
 .passage {
   max-width: 680px;
@@ -370,93 +378,10 @@ hr { border: none; border-top: 1px solid #eeeeee; margin: 2.5em 0; }
   padding: 6px 16px !important; width: auto !important; height: auto !important;
 }
 
-.error-view { display: none !important; }
-/* ===== 手機版響應式 ===== */
-@media (max-width: 768px) {
-  /* 側欄改為頂部橫條 */
-  #ui-bar {
-    width: 100% !important;
-    min-height: unset !important;
-    height: auto !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-
-  #ui-bar-body {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    padding: 8px 16px !important;
-  }
-
-  #story-title {
-    font-size: 0.85em !important;
-    padding: 0 !important;
-    text-align: left !important;
-    width: auto !important;
-    flex: 1 !important;
-  }
-
-  /* 側欄裝飾圖和作者行在手機隱藏 */
-  .sidebar-art,
-  .author-line {
-    display: none !important;
-  }
-
-  /* nav-row 和 func-row 變小 */
-  .nav-row, .func-row {
-    margin: 0 !important;
-    gap: 6px !important;
-  }
-
-  .nav-btn, .func-btn {
-    width: 34px !important;
-    height: 34px !important;
-    font-size: 0.9em !important;
-  }
-
-  /* StoryCaption 橫排 */
-  #story-caption {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    padding: 6px 0 !important;
-    width: 100% !important;
-  }
-
-  /* 選單在手機上隱藏（太擠） */
-  #menu-story, #menu-core {
-    display: none !important;
-  }
-
-  /* 主內文填滿全寬 */
-  #story {
-    margin-left: 0 !important;
-    padding: 24px 20px !important;
-  }
-
-  .passage {
-    font-size: 1em !important;
-    line-height: 1.9 !important;
-  }
-}
-
-@media (max-width: 480px) {
-  #story {
-    padding: 20px 16px !important;
-  }
-}
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+.error-view { display: none !important; }</style><script role="script" id="twine-user-script" type="text/twine-javascript">
 Config.history.controls = false;
 Config.saves.slots = 8;
-
-/* 在StoryCaption放導航和功能按鈕 */
-</script><tw-passagedata pid="1" name="StoryCaption" tags="" position="0,0" size="100,100">&lt;div class=&quot;nav-row&quot;&gt;
+Config.ui.stowBarInitially = 768;</script><tw-passagedata pid="1" name="StoryCaption" tags="" position="0,0" size="100,100">&lt;div class=&quot;nav-row&quot;&gt;
 &lt;&lt;button &quot;←&quot;&gt;&gt;&lt;&lt;back&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;button &quot;→&quot;&gt;&gt;&lt;&lt;forward&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
